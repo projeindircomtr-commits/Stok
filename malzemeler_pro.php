@@ -26,7 +26,11 @@ $malzemeler = $baglanti->query($sql);
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#667eea">
+<meta name="description" content="Stok Yönetimi Sistemi">
+<link rel="manifest" href="manifest.json">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 body { background:#f0f2f5; font-family:'Segoe UI'; }
@@ -126,5 +130,7 @@ body { background:#f0f2f5; font-family:'Segoe UI'; }
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
 </body>
 </html>
