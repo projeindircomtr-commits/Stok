@@ -68,6 +68,9 @@ if(isset($_POST['guncelle'])){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#667eea">
+<meta name="description" content="Stok Yönetimi Sistemi">
+<link rel="manifest" href="manifest.json">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
 body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-family:'Segoe UI'; min-height:100vh; }
@@ -77,7 +80,7 @@ body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-fam
 </head>
 <body>
 
-<?php include "header.php"; ?> <!-- Navbar include -->
+<?php include "header.php"; ?>
 
 <div class="container">
 <div class="card">
@@ -128,8 +131,10 @@ body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-fam
 </div>
 </div>
 
-<?php include "footer.php"; ?> <!-- Footer include -->
+<?php include "footer.php"; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
 </body>
 </html>
