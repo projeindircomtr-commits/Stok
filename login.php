@@ -28,6 +28,9 @@ if($_POST){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#667eea">
+<meta name="description" content="Stok Yönetimi Sistemi">
+<link rel="manifest" href="manifest.json">
 <title>Salman Şantiye Takip Sistemi - Giriş</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
@@ -117,11 +120,24 @@ body {
             <input type="password" name="sifre" class="form-control" placeholder="Şifre" required>
         </div>
         <button type="submit" class="btn btn-login">Giriş Yap</button>
-        
     </form>
 </div>
 
-
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker-v2.js')
+                .then(registration => {
+                    console.log('✅ Service Worker kaydedildi');
+                })
+                .catch(error => {
+                    console.error('Service Worker kaydı başarısız:', error);
+                });
+        });
+    }
+</script>
 
 </body>
 </html>
