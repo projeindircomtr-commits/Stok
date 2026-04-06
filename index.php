@@ -43,6 +43,9 @@ while($row = $arac_query->fetch_assoc()){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#667eea">
+<meta name="description" content="Stok Yönetimi Sistemi">
+<link rel="manifest" href="manifest.json">
 <title>Şantiye Panel</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -193,6 +196,22 @@ const aracChart = new Chart(ctx2, {
     },
     options: { responsive:true, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true}} }
 });
+</script>
+
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker-v2.js')
+                .then(registration => {
+                    console.log('✅ Service Worker kaydedildi');
+                })
+                .catch(error => {
+                    console.error('Service Worker kaydı başarısız:', error);
+                });
+        });
+    }
 </script>
 
 </body>
