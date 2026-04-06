@@ -38,6 +38,9 @@ if($admin_mi){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#667eea">
+<meta name="description" content="Stok Yönetimi Sistemi">
+<link rel="manifest" href="manifest.json">
 <title>Kullanıcı Yönetimi</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
@@ -48,7 +51,7 @@ body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-fam
 </head>
 <body>
 
-<?php include "header.php"; ?> <!-- Navbar include -->
+<?php include "header.php"; ?>
 
 <div class="container mt-4">
   <h3 class="mb-4">👤 Kullanıcı Yönetimi</h3>
@@ -124,8 +127,10 @@ body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-fam
   <?php } ?>
 </div>
 
-<?php include "footer.php"; ?> <!-- Footer include -->
+<?php include "footer.php"; ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
 </body>
 </html>
