@@ -51,7 +51,8 @@ body { background: linear-gradient(135deg,#1a1a1a,#0d6efd); color:#fff; font-fam
 </style>
 </head>
 <body>
-
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
 <?php include "header.php"; ?>
 
 <div class="container mt-4">
