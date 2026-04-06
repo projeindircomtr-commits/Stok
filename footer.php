@@ -90,3 +90,19 @@ select, option { padding:5px; border-radius:5px; border:none; }
     </div>
 </div>
 </footer>
+
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker-v2.js')
+                .then(registration => {
+                    console.log('✅ Service Worker kaydedildi');
+                })
+                .catch(error => {
+                    console.error('Service Worker kaydı başarısız:', error);
+                });
+        });
+    }
+</script>
