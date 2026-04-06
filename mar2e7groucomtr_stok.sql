@@ -80,7 +80,7 @@ CREATE TABLE `kategoriler` (
 
 INSERT INTO `kategoriler` (`id`, `ad`) VALUES
 (1, 'Kamyonlar'),
-(2, 'Binek araÃ§lar'),
+(2, 'Binek araçlar'),
 (3, 'Konteynerlar');
 
 -- --------------------------------------------------------
@@ -91,17 +91,18 @@ INSERT INTO `kategoriler` (`id`, `ad`) VALUES
 
 CREATE TABLE `kullanicilar` (
   `id` int(11) NOT NULL,
+  `ad` varchar(100) DEFAULT NULL,
   `kullanici_adi` varchar(50) DEFAULT NULL,
   `sifre` varchar(255) DEFAULT NULL,
-  `rol` varchar(20) DEFAULT 'personel'
+  `rol` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Tablo döküm verisi `kullanicilar`
 --
 
-INSERT INTO `kullanicilar` (`id`, `kullanici_adi`, `sifre`, `rol`) VALUES
-(1, 'admin', 'Ceza1Ceza', '1');
+INSERT INTO `kullanicilar` (`id`, `ad`, `kullanici_adi`, `sifre`, `rol`) VALUES
+(1, 'Admin User', 'admin', 'Ceza1Ceza', 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +193,20 @@ CREATE TABLE `zimmet` (
   `tarih` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `pending_operations`
+--
+
+CREATE TABLE `pending_operations` (
+  `id` int(11) NOT NULL,
+  `action` varchar(100) DEFAULT NULL,
+  `data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `synced` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
 --
 -- Dökümü yapılmış tablolar için indeksler
 --
@@ -252,6 +267,12 @@ ALTER TABLE `zimmet`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `pending_operations`
+--
+ALTER TABLE `pending_operations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -308,6 +329,13 @@ ALTER TABLE `stok_hareket`
 --
 ALTER TABLE `zimmet`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `pending_operations`
+--
+ALTER TABLE `pending_operations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
