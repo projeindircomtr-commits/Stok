@@ -42,7 +42,8 @@ img { max-width: 80px; border-radius: 6px; }
 </style>
 </head>
 <body>
-
+<!-- PWA Offline Desteği -->
+<script src="app.js"></script>
 <?php include "header.php"; ?>
 
 <div class="container mt-5">
